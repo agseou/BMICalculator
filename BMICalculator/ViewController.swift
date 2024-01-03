@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var RoundedRectangle: [UIView]!
     
     @IBOutlet var resultBtn: UIButton!
- 
+    var Height: Double? = nil
+    var Weight: Double? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +32,6 @@ class ViewController: UIViewController {
         
         // heightTextField
         heightTextField.keyboardType = .decimalPad
-        
-        
         weightTextField.keyboardType = .decimalPad
         
         
@@ -41,10 +40,16 @@ class ViewController: UIViewController {
     // 결과 확인 버튼 클릭
     @IBAction func tapResultBtn(_ sender: UIButton) {
         
+        var BMI = calculateBMI()
+        
         // 1. 컨텐츠
         let alert =  UIAlertController(
             title: "당신의 BMI 지수는",
-            message: "\(calculateBMI())",
+            message:  String(format: "%.2f", BMI),
+            preferredStyle: .alert)
+        
+        let alert2 =  UIAlertController(
+            title: "올바른 값을 입력하세요", message: "키와 몸무게는 cm와 kg 단위입니다",
             preferredStyle: .alert)
                 
         // 2. 버튼
@@ -52,20 +57,27 @@ class ViewController: UIViewController {
                 
         // 3. 컨텐츠 + 버튼
         alert.addAction(btn1)
+        alert2.addAction(btn1)
                 
         // 4. 띄우기
-        present(alert, animated: true)
+        BMI == 0 ? present(alert2, animated: true) : present(alert, animated: true)
     }
     
     @IBAction func tapTextField(_ sender: UITextField) {
+        guard let text = sender.text else { return }
+        guard let doubleText = Double(text) else { return }
         
+        print("\(sender.tag) 더블로 변환")
+        print(doubleText)
         
-        
+        if sender.tag == 0 { Height = doubleText/100}
+        if sender.tag == 1 { Weight = doubleText}
     }
     
     // BMI 계산 함수
     func calculateBMI() -> Double{
-        return 0
+        guard let Weight, let Height else { return 0.0}
+        return Weight / (Height * Height)
     }
     
     func setRoundedRectangle(_ sender: UIView){

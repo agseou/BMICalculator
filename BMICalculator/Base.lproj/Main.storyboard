@@ -68,7 +68,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="tapTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="irk-4Z-xoB"/>
+                                            <action selector="tapTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cB5-uB-6DZ"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -83,10 +83,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="39D-cd-VjX">
                                 <rect key="frame" x="30" y="454" width="333" height="55"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Nq-Oa-ho2">
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Nq-Oa-ho2">
                                         <rect key="frame" x="10" y="18.333333333333314" width="313" height="18.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="tapTextField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="eff-nQ-ilt"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
