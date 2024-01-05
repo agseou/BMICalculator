@@ -40,9 +40,8 @@ class ViewController: UIViewController {
         resetBtn.layer.cornerRadius = 10
         
         
-        // 기능
-        
-        // heightTextField
+
+        // TextField
         heightTextField.keyboardType = .decimalPad
         weightTextField.keyboardType = .decimalPad
         
@@ -77,12 +76,14 @@ class ViewController: UIViewController {
     
     // 텍스트필드의 액션 -> 입력 작업을 종료하고...
     @IBAction func tapTextField(_ sender: UITextField) {
-        if sender.tag == 0 {
-            UserDefaults.standard.setValue(sender.text, forKey: "nickName")
-        }
         
         guard let text = sender.text else {return}
         
+        if sender.tag == 0 {
+            UserDefaults.standard.setValue(sender.text, forKey: "nickName")
+            return
+        }
+
         if let doubleText = Double(text) {
             print("\(sender.tag)번째 텍스트필드에 입력된 값을 더블로 변환")
             print(doubleText)
